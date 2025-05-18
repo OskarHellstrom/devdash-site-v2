@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+}
+
+/* Styles for Interactive Portfolio */
+.interactive-portfolio-item {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+.interactive-portfolio-item:hover {
+    background-color: #c0bfb5; /* Slightly darker shade for hover */
+}
+.interactive-portfolio-item.active {
+    background-color: #919da0; /* Grayish Blue for active item */
+    color: #d4d3c8; /* Light Grayish text for active item */
+    transform: translateX(5px);
+}
+
+.interactive-portfolio-animation-pane {
+    background-color: #414b53; /* Dark Slate Gray for animation pane */
+    color: #d4d3c8; /* Light Grayish text for animation pane */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px; /* Ensure a minimum height */
+    transition: background-color 0.5s ease;
+}
+
+/* Placeholder Animation Styles */
+.interactive-portfolio-anim-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d4d3c8;
+    animation: interactivePortfolioPulse 2s infinite ease-in-out;
+}
+.interactive-portfolio-anim-square {
+    width: 100px;
+    height: 100px;
+    background-color: #919da0;
+    animation: interactivePortfolioSpin 4s linear infinite;
+}
+.interactive-portfolio-anim-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #d4d3c8;
+    animation: interactivePortfolioBounce 2s infinite ease-in-out;
+}
+.interactive-portfolio-anim-line {
+    width: 150px;
+    height: 10px;
+    background-color: #919da0;
+    animation: interactivePortfolioStretch 3s infinite ease-in-out;
+}
+
+@keyframes interactivePortfolioPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+}
+@keyframes interactivePortfolioSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes interactivePortfolioBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes interactivePortfolioStretch {
+    0%, 100% { width: 150px; }
+    50% { width: 50px; }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #c0bfb5;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #919da0;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7a8486;
+}
+
+/* Styles for Interactive Process Flow */
+.interactive-flow-page-container {
+    width: 100%;
+    max-width: 72rem; /* max-w-6xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative; /* For absolute positioning of SVG overlay */
+}
+@media (min-width: 640px) {
+    .interactive-flow-page-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+.interactive-flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    position: relative; /* To ensure content is above SVG if SVG is child of this */
+    z-index: 10; /* Content above lines */
+}
+
+@media (min-width: 1024px) {
+    .interactive-flow-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
+.interactive-flow-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* New wrapper for trigger + dropdown pair */
+.interactive-flow-item-wrapper {
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .interactive-flow-column {
+            width: calc(33.3333% - 3.5rem);
+    }
+}
+
+.interactive-flow-trigger-box {
+    background-color: #e9e8e0; /* custom-trigger-bg */
+    color: #414b53; /* custom-dark-gray */
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem; /* xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.2s ease;
+    border: 1px solid rgba(145, 157, 160, 0.3); /* custom-medium-gray / 0.3 */
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    outline: 2px solid transparent;
+    outline-offset: -8px;
+    transition: outline-color 0.3s;
+    animation: pulse-outline-move 4s linear infinite;
+}
+
+.interactive-flow-trigger-box:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+    background-color: rgba(212, 211, 200, 0.8); /* custom-light-beige / 0.8 */
+}
+
+.interactive-flow-trigger-box .icon-trigger {
+    font-size: 1.5rem;
+    color: #6c7a86; /* custom-accent */
+    margin-right: 0.75rem;
+    width: 2rem;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+.interactive-flow-trigger-box:hover .icon-trigger {
+    transform: scale(1.1);
+}
+.interactive-flow-trigger-box div h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.125rem;
+}
+.interactive-flow-trigger-box div p {
+    font-size: 0.875rem;
+    color: #919da0; /* custom-medium-gray */
+}
+
+.interactive-flow-dropdown-content {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: #e9e8e0; /* Changed to match trigger box bg */
+    border-radius: 0.5rem; /* Match trigger box or general theme */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Similar to trigger box */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                opacity 0.5s ease-out,
+                transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-top: 0;
+    opacity: 0;
+}
+
+.interactive-flow-dropdown-content.show {
+    max-height: 1000px; /* Or a suitable max height */
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    margin-top: 0;
+}
+
+/* New class for inner content of the dropdown */
+.interactive-flow-dropdown-inner-content {
+    padding: 1.5rem; /* Consistent padding for all sides */
+}
+
+.interactive-flow-center-display {
+    background-color: #414b53; /* custom-dark-gray */
+    color: #d4d3c8; /* custom-light-beige */
+    padding: 1.5rem;
+    border-radius: 1rem; /* 2xl */
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), inset 0 2px 4px 0 rgba(0, 0, 0, 0.03); /* shadow-xl, shadow-inner-soft */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 10;
+    outline: 2px solid transparent;
+    outline-offset: -8px;
+    transition: outline-color 0.3s;
+    animation: pulse-outline-move 4s linear infinite;
+}
+.interactive-flow-center-display .icons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+.interactive-flow-center-display .icon-center {
+    font-size: 2rem;
+    color: #6c7a86; /* custom-accent */
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+.interactive-flow-center-display .icon-separator {
+    font-size: 1.5rem;
+    color: #919da0; /* custom-medium-gray */
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+.interactive-flow-center-display h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d4d3c8; /* custom-light-beige */
+    margin-bottom: 0.25rem;
+}
+.interactive-flow-center-display p {
+    font-size: 0.875rem;
+    color: #919da0; /* custom-medium-gray */
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interactive-flow-dropdown-title {
+    font-weight: 700;
+    color: var(--card-foreground); /* Changed to theme variable */
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border); /* Changed to theme variable and 1px */
+    font-size: 1.25rem;
+}
+.interactive-flow-dropdown-item {
+    padding: 0.75rem 0.5rem; /* Adjusted padding */
+    color: var(--card-foreground); /* Changed to theme variable */
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border); /* Changed to theme variable */
+}
+.interactive-flow-dropdown-item:last-child {
+    border-bottom: none;
+}
+.interactive-flow-dropdown-item strong {
+    color: var(--card-foreground); /* Changed to theme variable, boldness comes from strong tag */
+    font-weight: 600; /* Retain semi-bold for emphasis */
+}
+
+#interactive-flow-lines-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: visible;
+}
+
+.interactive-flow-line-path {
+    fill: none;
+    stroke: #6c7a86; /* custom-accent */
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 8, 6;
+    animation: interactiveFlowAnimateFlow 1s linear infinite;
+}
+
+@keyframes interactiveFlowAnimateFlow {
+    to {
+        stroke-dashoffset: -14;
+    }
+}
+
+/* Styles for Animated Contact Form */
+.animated-contact-form-container {
+    background-color: #525d66; /* Slightly lighter than body for contrast - User Specified */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 800px; /* Max width for the form and animation area */
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 2rem;
+    position: relative;
+    margin-left: auto; /* Center the form container within the section */
+    margin-right: auto; /* Center the form container within the section */
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .animated-contact-form-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.animated-contact-input-field {
+    background-color: #919da0; /* Medium Gray - User Specified */
+    color: #414b53; /* Dark Slate for text inside input - User Specified */
+    border: 1px solid #d4d3c8; /* Light Beige border - User Specified */
+    /* Tailwind provides focus styles, but we can ensure consistency */
+}
+.animated-contact-input-field::placeholder {
+    color: #5f6b73; /* Darker placeholder text - User Specified */
+}
+.animated-contact-input-field:focus {
+    outline: none;
+    /* ring-2 ring-[#d4d3c8] will be handled by Tailwind classes directly on the element */
+}
+
+.animated-contact-btn-send {
+    background-color: #919da0; /* Medium Gray - User Specified */
+    color: #414b53; /* Dark Slate - User Specified */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.animated-contact-btn-send:hover {
+    background-color: #a1adaf; /* Lighter Medium Gray on hover - User Specified */
+}
+.animated-contact-btn-send:active {
+    transform: scale(0.98);
+}
+
+#animated-contact-airplane-container {
+    position: relative; 
+    width: 100%;
+    min-height: 250px; /* ensure space for animation */
+    height: 100%; /* Take full height of its grid cell */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+#animated-contact-paper-airplane {
+    width: 100px; 
+    height: auto;
+    cursor: grab;
+    fill: #d4d3c8; /* Light Beige airplane - User Specified */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+}
+
+.animated-contact-cloud {
+    position: absolute;
+    fill: #919da0; /* Medium Gray clouds - User Specified */
+    /* Default opacity set in JS for randomness */
+}
+
+.animated-contact-cloud1 { width: 125px; top: 15%; left: 5%; }
+.animated-contact-cloud2 { width: 95px; top: 55%; left: 75%; }
+.animated-contact-cloud3 { width: 150px; top: 70%; left: 20%; }
+
+#animated-contact-success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #68d391; /* Green for success - User Specified */
+    color: #1a202c; /* Dark text - User Specified */
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#animated-contact-success-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Text colors based on user's form design */
+.animated-contact-text-light-beige {
+    color: #d4d3c8; /* Light Beige */
+}
+
+.animated-contact-text-medium-gray {
+    color: #919da0; /* Medium Gray */
+}
+
+@keyframes pulse-outline-move {
+  0% {
+    box-shadow: 0 0 0 0 rgba(108, 122, 134, 0.0);
+    outline-offset: -8px;
+    outline-color: rgba(108, 122, 134, 0.0);
+  }
+  10% {
+    box-shadow: 0 0 8px 4px rgba(108, 122, 134, 0.3);
+    outline-offset: 0px;
+    outline-color: rgba(108, 122, 134, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 16px 8px rgba(108, 122, 134, 0.7);
+    outline-offset: 0px;
+    outline-color: rgba(108, 122, 134, 1);
+  }
+  90% {
+    box-shadow: 0 0 8px 4px rgba(108, 122, 134, 0.3);
+    outline-offset: 0px;
+    outline-color: rgba(108, 122, 134, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 122, 134, 0.0);
+    outline-offset: -8px;
+    outline-color: rgba(108, 122, 134, 0.0);
+  }
+}
+
+/* Staggered animation for sequential flow */
+.interactive-flow-trigger-box[data-idx],
+.interactive-flow-center-display[data-idx],
+.interactive-flow-result-box[data-idx] {
+  animation-delay: var(--pulse-delay, 0s);
+}
+
+/* Override for slower, smoother background shine animation */
+@keyframes background-shine {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
+.animate-background-shine {
+  animation: background-shine 8s linear infinite !important;
+}
