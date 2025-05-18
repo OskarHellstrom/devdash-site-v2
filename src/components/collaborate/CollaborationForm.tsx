@@ -119,40 +119,8 @@ const CollaborationForm = () => {
       });
     };
 
-    const handleFormSubmit: EventListener = (event: Event) => {
-      event.preventDefault();
-      if (!form) return;
-
-      let isValid = true;
-      form.querySelectorAll('[required]').forEach(input => {
-        const el = input as HTMLInputElement | HTMLTextAreaElement;
-        if (!el.value.trim()) {
-          isValid = false;
-          el.classList.add('border-red-500', 'ring-red-500');
-          el.classList.remove('focus:ring-[#d4d3c8]');
-        } else {
-          el.classList.remove('border-red-500', 'ring-red-500');
-          el.classList.add('focus:ring-[#d4d3c8]');
-        }
-      });
-
-      if (isValid) {
-        playTakeOffAnimation();
-      } else {
-        gsap.fromTo(form, { x: -10 }, { x: 10, duration: 0.05, repeat: 5, yoyo: true, clearProps: "x" });
-      }
-    };
-
-    form.addEventListener('submit', handleFormSubmit);
     resetAirplaneAndClouds();
-
-    return () => {
-      hoverTimeline.kill();
-      currentClouds.forEach(cloud => gsap.killTweensOf(cloud));
-      gsap.killTweensOf(airplane);
-      form.removeEventListener('submit', handleFormSubmit);
-    };
-  }, [isTakingOff]);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -181,26 +149,26 @@ const CollaborationForm = () => {
             const form = formRef.current;
             let isValid = true;
             form?.querySelectorAll('[required]').forEach(input => {
-              const el = input as HTMLInputElement | HTMLTextAreaElement;
-              if (!el.value.trim()) {
-                isValid = false;
-                el.classList.add('border-red-500', 'ring-red-500');
-                el.classList.remove('focus:ring-[#d4d3c8]');
-              } else {
-                el.classList.remove('border-red-500', 'ring-red-500');
-                el.classList.add('focus:ring-[#d4d3c8]');
-              }
+                const el = input as HTMLInputElement | HTMLTextAreaElement;
+                if (!el.value.trim()) {
+                    isValid = false;
+                    el.classList.add('border-red-500', 'ring-red-500');
+                    el.classList.remove('focus:ring-[#d4d3c8]');
+                } else {
+                    el.classList.remove('border-red-500', 'ring-red-500');
+                    el.classList.add('focus:ring-[#d4d3c8]');
+                }
             });
             if (isValid && form) {
-              const formData = new FormData(form);
-              await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfICAP0CkzdQH8Kj-6nChP2F-3Kh0C_o6MpkGCKAhVfiYum2Q/formResponse', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData,
-              });
-              if (playTakeOffAnimation) playTakeOffAnimation();
+                const formData = new FormData(form);
+                await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfICAP0CkzdQH8Kj-6nChP2F-3Kh0C_o6MpkGCKAhVfiYum2Q/formResponse', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData,
+                });
+                if (playTakeOffAnimation) playTakeOffAnimation();
             } else if (form) {
-              gsap.fromTo(form, { x: -10 }, { x: 10, duration: 0.05, repeat: 5, yoyo: true, clearProps: "x" });
+                gsap.fromTo(form, { x: -10 }, { x: 10, duration: 0.05, repeat: 5, yoyo: true, clearProps: "x" });
             }
           }}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

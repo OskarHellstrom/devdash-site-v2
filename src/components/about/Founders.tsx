@@ -21,9 +21,9 @@ const Founders = () => {
                 </p>
                 <div className="flex gap-4 mt-auto pt-4">
                   <a href="https://www.linkedin.com/in/oskar-hellstrom" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#5e6b76] hover:text-[#414b53] transition-colors" aria-label="Oskar's LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                      <rect width="24" height="24" rx="4" fill="currentColor" />
-                      <path d="M7.75 9.5v5h-1.5v-5h1.5zm-.75-2.25a.875.875 0 1 1 0-1.75.875.875 0 0 1 0 1.75zm2.25 2.25h1.44v.68h.02c.2-.36.7-.74 1.44-.74 1.54 0 1.82 1.01 1.82 2.32v2.74h-1.5v-2.43c0-.58-.01-1.33-.81-1.33-.81 0-.93.63-.93 1.28v2.48h-1.5v-5z" fill="#fff"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-8 h-8" aria-hidden="true">
+                      <rect x="16" y="16" width="416" height="480" rx="96" fill="#5e6b76"/>
+                      <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.9-43.7 31.3-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.7 39.8 106.7 125.4V448z" fill="#fff"/>
                     </svg>
                   </a>
                   <a href="mailto:oskar@devdash.co" className="inline-flex items-center text-[#5e6b76] hover:text-[#414b53] transition-colors" aria-label="Email Oskar">
@@ -49,9 +49,9 @@ const Founders = () => {
                 </p>
                 <div className="flex gap-4 mt-auto pt-4">
                   <a href="https://www.linkedin.com/in/philip-ronnmark/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#5e6b76] hover:text-[#414b53] transition-colors" aria-label="Philip's LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">
-                      <rect width="24" height="24" rx="4" fill="currentColor" />
-                      <path d="M7.75 9.5v5h-1.5v-5h1.5zm-.75-2.25a.875.875 0 1 1 0-1.75.875.875 0 0 1 0 1.75zm2.25 2.25h1.44v.68h.02c.2-.36.7-.74 1.44-.74 1.54 0 1.82 1.01 1.82 2.32v2.74h-1.5v-2.43c0-.58-.01-1.33-.81-1.33-.81 0-.93.63-.93 1.28v2.48h-1.5v-5z" fill="#fff"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-8 h-8" aria-hidden="true">
+                      <rect x="16" y="16" width="416" height="480" rx="96" fill="#5e6b76"/>
+                      <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.9-43.7 31.3-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.4s1.2-242.1 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.7 39.8 106.7 125.4V448z" fill="#fff"/>
                     </svg>
                   </a>
                   <a href="mailto:philip@devdash.co" className="inline-flex items-center text-[#5e6b76] hover:text-[#414b53] transition-colors" aria-label="Email Philip">

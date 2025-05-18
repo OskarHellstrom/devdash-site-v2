@@ -115,45 +115,7 @@ const Contact = () => {
             });
         };
 
-        // Type explicitly as EventListener for addEventListener
-        const handleFormSubmit: EventListener = (event: Event) => {
-            event.preventDefault(); 
-            if (!form) return;
-
-            let isValid = true;
-            // Type assertion for querySelectorAll elements
-            form.querySelectorAll('[required]').forEach(input => {
-                const el = input as HTMLInputElement | HTMLTextAreaElement;
-                if (!el.value.trim()) {
-                    isValid = false;
-                    el.classList.add('border-red-500', 'ring-red-500');
-                    el.classList.remove('focus:ring-[#d4d3c8]'); // Tailwind class from your HTML
-                } else {
-                    el.classList.remove('border-red-500', 'ring-red-500');
-                    el.classList.add('focus:ring-[#d4d3c8]'); // Tailwind class from your HTML
-                }
-            });
-
-            if (isValid) {
-                console.log('Form submitted (simulated)');
-                playTakeOffAnimation();
-            } else {
-                console.log('Form validation failed');
-                gsap.fromTo(form, { x: -10 }, { x: 10, duration: 0.05, repeat: 5, yoyo: true, clearProps: "x" });
-            }
-        };
-        
-        form.addEventListener('submit', handleFormSubmit);
-        resetAirplaneAndClouds(); // Initial call to set up opacities and hover
-
-        return () => {
-            hoverTimeline.kill();
-            currentClouds.forEach(cloud => gsap.killTweensOf(cloud));
-            gsap.killTweensOf(airplane);
-            form.removeEventListener('submit', handleFormSubmit);
-        };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []); // Rerun effect if isTakingOff changes, to re-evaluate playTakeOffAnimation guard
+    }, []);
 
   return (
     <section id="contact" className="py-20 bg-secondary/10">
